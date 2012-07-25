@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= csrf_meta_tag %>
+    <%= render "layouts/async_javascript", path: "application" %>
+  </head>
+  <body>
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
